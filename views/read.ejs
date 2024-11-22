@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="footer_header.css">
+    <link rel="stylesheet" href="read.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500&family=Quicksand:wght@300..700&display=swap" 
+          rel="stylesheet">
+    <title>Read some blogs!</title>
+</head>
+<%- include("header.ejs") %>
+    <div class="content quicksand">
+        <div class="left">
+            <ul class="unorderedList">
+                <% for (i=0; i<(blogTitles.length); i++) { %>
+                    <li class="blogTitlesclass" onclick="blogUpdate(<%= i %>)"> <%= blogTitles[i] %> </li>
+                <% }; %>   
+            </ul>
+
+            <script> function blogUpdate(index) { 
+                 fetch("update_blog", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({index: index}),
+                 })
+                .then(response => response.json())
+                .then(data => {
+                console.log('Response from backend:', data, data.titleToRender, data.titleToRender);
+                // Update the DOM element to show the blog content
+                document.getElementById("blogTitle").innerText = data.titleToRender;
+                document.getElementById("blogContent").innerText = data.blogToRender;
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+
+             }
+            </script>
+
+
+            
+        </div>
+
+        <div class="right">
+            <h2 id="blogTitle"> Choose a blog on left to read it</h2>
+            <p id="blogContent"></p>
+           
+         </div>
+    </div> 
+<%- include("footer.ejs") %>
+</html>

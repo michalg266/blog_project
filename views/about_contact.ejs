@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="about_contact.css">
+    <link rel="stylesheet" href="footer_header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500&family=Quicksand:wght@300..700&display=swap" 
+          rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="about" class="div_about quicksand">
+        <div class="navigationBar quicksand">
+            <div class="buttonContainer">
+                <a href="/" class="Home">Home</a>
+                <a href="/write" class="Write">Write</a>
+                <a href="/read" class="Read">Read</a>
+                <a href="/about" class="About">About Us</a>
+                <a href="/contact" class="Contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="who">
+            <h2>Who are we?</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div class="what">
+            <h2>What is our goal?</h2>
+            <p>Lorem ipsum dolor sit amet, te vis accumsan molestiae, augue disputationi mea te. Vim at phaedrum philosophia consequuntur, cu quo ullum sententiae philosophia. Te has dicit molestie iudicabit. Nibh posse pro no, sonet essent discere ius ut. Praesent expetenda corrumpit an eos, id eam mollis honestatis. </p>
+            <p>Habemus delicata in mea, qui ut veritus suscipit abhorreant, ex ipsum quidam definitionem sed. Hinc graeco expetendis vim ei, ea aperiam labores accommodare pri, quando latine pertinacia ei eum. Ei labores reformidans mel. Te vis tota aeque.</p>
+        </div>
+    </div>
+
+
+    <div id="contact" class="div_contact">
+        <div id="navbarID" class="navigationBar_contact quicksand">
+            <div class="buttonContainer_contact">
+                <a href="/" class="Home">Home</a>
+                <a href="/write" class="Write">Write</a>
+                <a href="/read" class="Read">Read</a>
+                <a href="/about" class="About">About Us</a>
+                <a href="/contact" class="Contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="content">
+
+
+            <div class="left">
+
+            </div>
+            <div class="right">
+            <h1 class="quicksand">Get in touch with us!</h1>
+            <form action="/submit_email" method="POST" class="quicksand">
+                <div class="email_div">
+                    <input 
+                        type="text" 
+                        name="email" 
+                        class="quicksand email" 
+                        spellcheck="false"
+                        placeholder="your email"
+                        required>
+                </div>
+        
+                <div class="message_div">
+                    <textarea 
+                        type="text" 
+                        name="message" 
+                        class="quicksand message" 
+                        wrap="hard" 
+                        spellcheck="false"
+                        placeholder="your message to us"
+                        required></textarea>
+                </div>
+                <button type="submit" class="button">Send</button>
+            </form>   
+            </div>
+
+        </div>  
+
+    </div>
+
+<script>
+    const section = "<%= section %>";
+    const navbar = document.getElementById("navbarID");
+
+
+    if (section === "about") {
+        document.getElementById("about").scrollIntoView({behavior:"instant"});
+    }
+    else if (section === "contact") {
+        document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+        setTimeout(() => {
+            navbar.classList.add("show")
+        } ,500);
+    };
+
+
+</script>
+    
+</body>
+</html>

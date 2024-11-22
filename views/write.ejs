@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="write.css">
+    <link rel="stylesheet" href="footer_header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500&family=Quicksand:wght@300..700&display=swap" 
+          rel="stylesheet">
+    <title>Write some blog</title>
+    <style>
+        .copyright{
+            color: black;
+        }
+    </style>
+
+</head>
+<%- include("header.ejs") %>
+
+    <form action="/submit_blog" method="POST" class="quicksand">
+        <div class="upper">
+            <label for="title">Title of your blog</label>
+            <input 
+                type="text" 
+                id="title" 
+                name="title" 
+                class="quicksand" 
+                spellcheck="false" 
+                required>
+        </div>
+
+        <div class="lower">
+            <label for="blog">Start writing</label>
+            <textarea 
+                type="text" 
+                id="blog" 
+                name="blog" 
+                class="quicksand" 
+                wrap="hard" 
+                spellcheck="false" 
+                required></textarea>
+        </div>
+        <button type="submit" class="button">Submit</button>
+    </form>   
+<%- include("footer.ejs") %>
+</html>
